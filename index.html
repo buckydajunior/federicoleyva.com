@@ -1,250 +1,139 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Federico Leyva works at the intersection of market structure, stablecoins, and financial access.">
-  <title>Federico Leyva</title>
-  <style>
-    :root {
-      --ink: #181818;
-      --muted: #73706a;
-      --line: #dcd8d0;
-      --paper: #f5f2ec;
-      --acid: #dfff00;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federico Leyva</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 80px 24px;
+        }
 
-    * { box-sizing: border-box; }
+        .container {
+            max-width: 520px;
+            width: 100%;
+        }
 
-    html { background: var(--paper); }
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #111111;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
 
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      line-height: 1.35;
-      -webkit-font-smoothing: antialiased;
-    }
+        .bio {
+            font-size: 0.95rem;
+            color: #555555;
+            margin-bottom: 40px;
+        }
 
-    a { color: inherit; }
+        .bio p {
+            margin-bottom: 16px;
+        }
 
-    .page {
-      width: min(1120px, calc(100% - 48px));
-      margin: 0 auto;
-      padding: 24px 0 48px;
-    }
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #aaaaaa;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
 
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 80px;
-      font-size: 13px;
-      letter-spacing: .02em;
-    }
+        .links {
+            margin-bottom: 40px;
+        }
 
-    .mark { font-weight: 700; text-decoration: none; }
-    .nav-link { color: var(--muted); text-decoration: none; }
-    .nav-link:hover { color: var(--ink); }
+        .links a {
+            display: block;
+            color: #333333;
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f0f0f0;
+            transition: color 0.2s;
+        }
 
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.45fr) minmax(240px, .55fr);
-      gap: 40px;
-      min-height: 405px;
-      padding-bottom: 64px;
-      border-bottom: 1px solid var(--ink);
-    }
+        .links a:hover {
+            color: #000000;
+        }
 
-    .eyebrow, .label {
-      display: block;
-      margin-bottom: 15px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
+        .links a span {
+            color: #aaaaaa;
+            font-size: 0.85rem;
+            margin-left: 8px;
+        }
 
-    h1 {
-      max-width: 810px;
-      margin: 0;
-      font-size: clamp(48px, 8vw, 104px);
-      font-weight: 700;
-      letter-spacing: -.075em;
-      line-height: .91;
-    }
+        .socials {
+            display: flex;
+            gap: 24px;
+            margin-top: 8px;
+        }
 
-    .intro {
-      max-width: 600px;
-      margin: 28px 0 0;
-      font-size: clamp(19px, 2.1vw, 27px);
-      letter-spacing: -.035em;
-      line-height: 1.16;
-    }
+        .socials a {
+            color: #aaaaaa;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
 
-    .hero-note {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
-    }
+        .socials a:hover {
+            color: #111111;
+        }
 
-    .hero-note p { margin: 0; }
-
-    .location {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 7px 9px;
-      background: var(--acid);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .03em;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--ink);
-    }
-
-    .section {
-      padding: 28px 0 36px;
-    }
-
-    .section + .section {
-      padding-left: 40px;
-      border-left: 1px solid var(--ink);
-    }
-
-    .roles { margin: 0; padding: 0; list-style: none; }
-
-    .roles li {
-      display: grid;
-      grid-template-columns: minmax(125px, .55fr) 1fr;
-      gap: 18px;
-      padding: 13px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .roles li:first-child { border-top: 0; padding-top: 0; }
-    .role-name { font-weight: 700; }
-    .role-desc { color: var(--muted); }
-
-    .focus {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .focus-item {
-      min-height: 138px;
-      padding: 14px;
-      border: 1px solid var(--ink);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .focus-item span { color: var(--muted); font-size: 13px; }
-    .focus-item strong { font-size: 18px; letter-spacing: -.035em; line-height: 1.05; }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding-top: 24px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .links { display: flex; flex-wrap: wrap; gap: 16px; }
-    .links a { text-underline-offset: 3px; }
-    .links a:hover { color: var(--ink); }
-
-    @media (max-width: 720px) {
-      .page { width: min(100% - 32px, 1120px); padding-top: 16px; }
-      nav { padding-bottom: 58px; }
-      .hero { display: block; min-height: 0; padding-bottom: 40px; }
-      .hero-note { margin-top: 48px; }
-      .grid { display: block; }
-      .section + .section { padding-left: 0; border-left: 0; border-top: 1px solid var(--ink); }
-      .focus { grid-template-columns: 1fr; gap: 0; }
-      .focus-item { min-height: 88px; border-bottom: 0; }
-      .focus-item:last-child { border-bottom: 1px solid var(--ink); }
-      footer { display: block; }
-      .links { margin-top: 14px; }
-    }
-  </style>
+        .footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid #f0f0f0;
+            font-size: 0.8rem;
+            color: #cccccc;
+        }
+    </style>
 </head>
 <body>
-  <main class="page">
-    <nav aria-label="Primary navigation">
-      <a class="mark" href="/">FL</a>
-      <a class="nav-link" href="mailto:federicoleyva@gmail.com">Get in touch ↗</a>
-    </nav>
-
-    <section class="hero" aria-labelledby="name">
-      <div>
-        <span class="eyebrow">Market structure · money · identity</span>
-        <h1 id="name">Federico<br>Leyva</h1>
-        <p class="intro">I work on the infrastructure that makes financial products useful: liquidity, stablecoins, payments, and access.</p>
-      </div>
-      <aside class="hero-note">
-        <span class="label">Current work</span>
-        <p>DeFi strategy, ecosystem partnerships, and identity-driven finance at World Foundation.</p>
-        <span class="location">New York</span>
-      </aside>
-    </section>
-
-    <div class="grid">
-      <section class="section" aria-labelledby="roles-title">
-        <h2 id="roles-title" class="label">Roles</h2>
-        <ul class="roles">
-          <li>
-            <span class="role-name">World Foundation</span>
-            <span class="role-desc">DeFi strategy and World Chain ecosystem partnerships</span>
-          </li>
-          <li>
-            <span class="role-name">Acme Wealth Group</span>
-            <span class="role-desc">Director of the board</span>
-          </li>
-          <li>
-            <span class="role-name">Symbiosis</span>
-            <span class="role-desc">Advisor, prime brokerage for prediction markets</span>
-          </li>
-        </ul>
-      </section>
-
-      <section class="section" aria-labelledby="focus-title">
-        <h2 id="focus-title" class="label">Focus</h2>
-        <div class="focus">
-          <div class="focus-item">
-            <span>01</span>
-            <strong>Stablecoin<br>infrastructure</strong>
-          </div>
-          <div class="focus-item">
-            <span>02</span>
-            <strong>Market<br>structure</strong>
-          </div>
-          <div class="focus-item">
-            <span>03</span>
-            <strong>Financial<br>access</strong>
-          </div>
+    <div class="container">
+        <h1>Federico Leyva</h1>
+        
+        <div class="bio">
+            <p>DeFi strategist at World Foundation, focused on stablecoin infrastructure, ecosystem partnerships, and identity-driven finance for World Chain — a network built for 18 million verified humans.</p>
+            <p>Director of the board at Acme Wealth Group, a multi-strategy fund. Advisor at Symbiosis (prime brokerage for prediction markets).</p>
+            <p>Grew up in New York. UA Gateway School for Technology. Posse Foundation scholar at Babson College.</p>
+            <p>Interested in inefficient markets and food.</p>
         </div>
-      </section>
-    </div>
 
-    <footer>
-      <span>Interested in inefficient markets and food.</span>
-      <div class="links">
-        <a href="https://x.com/f73f73f73" target="_blank" rel="noreferrer">X</a>
-        <a href="https://linkedin.com/in/fleyva" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://world.org" target="_blank" rel="noreferrer">World</a>
-      </div>
-    </footer>
-  </main>
+        <div class="section-label">Projects</div>
+        <div class="links">
+            <a href="https://world.org" target="_blank">World Foundation <span>→ world.org</span></a>
+            <a href="https://world.org/world-chain" target="_blank">World Chain <span>→ world.org/world-chain</span></a>
+            <a href="https://acmewealthgroup.com" target="_blank">Acme Wealth Group <span>→ acmewealthgroup.com</span></a>
+            <a href="https://symbiosis.markets" target="_blank">Symbiosis <span>→ symbiosis.markets</span></a>
+        </div>
+
+        <div class="section-label">Blog</div>
+        <div class="links">
+            <a href="#">Coming soon</a>
+        </div>
+
+        <div class="section-label">Connect</div>
+        <div class="socials">
+            <a href="https://x.com/f73f73f73" target="_blank">X / Twitter</a>
+            <a href="https://linkedin.com/in/fleyva" target="_blank">LinkedIn</a>
+            <a href="mailto:federicoleyva@gmail.com">Email</a>
+        </div>
+
+        <div class="footer">
+            New York, 2026
+        </div>
+    </div>
 </body>
 </html>
