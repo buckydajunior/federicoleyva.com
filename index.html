@@ -1,139 +1,219 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Federico Leyva</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            background: #ffffff;
-            color: #333333;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            padding: 80px 24px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Federico Leyva — strategist, investor, and advisor.">
+  <title>Federico Leyva</title>
+  <style>
+    :root {
+      --paper: #f8f8f4;
+      --ink: #11110f;
+      --muted: #6d6d68;
+      --rule: #dcdcd5;
+      --accent: #eaff37;
+    }
 
-        .container {
-            max-width: 520px;
-            width: 100%;
-        }
+    * { box-sizing: border-box; margin: 0; }
 
-        h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #111111;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
+    html { background: var(--paper); }
 
-        .bio {
-            font-size: 0.95rem;
-            color: #555555;
-            margin-bottom: 40px;
-        }
+    body {
+      min-width: 320px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.35;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-        .bio p {
-            margin-bottom: 16px;
-        }
+    a { color: inherit; }
 
-        .section-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #aaaaaa;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
+    .page {
+      width: min(100% - 48px, 1320px);
+      margin: 0 auto;
+      padding: 18px 0 34px;
+    }
 
-        .links {
-            margin-bottom: 40px;
-        }
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 27px;
+      border-bottom: 1px solid var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
 
-        .links a {
-            display: block;
-            color: #333333;
-            text-decoration: none;
-            padding: 8px 0;
-            font-size: 0.95rem;
-            border-bottom: 1px solid #f0f0f0;
-            transition: color 0.2s;
-        }
+    .monogram { letter-spacing: -.06em; }
+    .location { color: var(--muted); font-size: 10px; letter-spacing: .1em; }
 
-        .links a:hover {
-            color: #000000;
-        }
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(260px, .8fr);
+      gap: 48px;
+      padding: 48px 0 58px;
+      border-bottom: 1px solid var(--rule);
+    }
 
-        .links a span {
-            color: #aaaaaa;
-            font-size: 0.85rem;
-            margin-left: 8px;
-        }
+    h1 {
+      max-width: 800px;
+      font-size: clamp(68px, 10.5vw, 176px);
+      font-weight: 500;
+      letter-spacing: -.09em;
+      line-height: .79;
+    }
 
-        .socials {
-            display: flex;
-            gap: 24px;
-            margin-top: 8px;
-        }
+    .intro-copy {
+      align-self: end;
+      max-width: 355px;
+      font-size: clamp(18px, 1.7vw, 25px);
+      line-height: 1.18;
+      letter-spacing: -.035em;
+    }
 
-        .socials a {
-            color: #aaaaaa;
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s;
-        }
+    .content { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(260px, .8fr); column-gap: 48px; }
 
-        .socials a:hover {
-            color: #111111;
-        }
+    .section { padding: 26px 0; border-bottom: 1px solid var(--rule); }
+    .roles { grid-column: 1 / -1; }
 
-        .footer {
-            margin-top: 60px;
-            padding-top: 24px;
-            border-top: 1px solid #f0f0f0;
-            font-size: 0.8rem;
-            color: #cccccc;
-        }
-    </style>
+    .label {
+      margin-bottom: 24px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .11em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .role-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--rule); }
+
+    .role {
+      min-height: 204px;
+      padding: 18px 20px 18px 0;
+      border-right: 1px solid var(--rule);
+    }
+
+    .role + .role { padding-left: 20px; }
+    .role:last-child { border-right: 0; padding-right: 0; }
+    .role a { text-decoration: none; }
+    .role a:hover .role-title { text-decoration: underline; text-underline-offset: .12em; }
+
+    .role-title { display: block; font-size: clamp(20px, 2vw, 30px); font-weight: 500; letter-spacing: -.06em; line-height: 1; }
+    .arrow { font-size: .8em; vertical-align: .12em; }
+    .company { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
+    .role-description { margin-top: 22px; max-width: 240px; color: var(--muted); font-size: 14px; line-height: 1.35; }
+
+    .advisory { grid-column: 1; }
+    .background { grid-column: 2; }
+    .interest-copy { max-width: 750px; font-size: clamp(26px, 3.1vw, 48px); font-weight: 400; letter-spacing: -.065em; line-height: 1.02; }
+    .background-copy { max-width: 315px; color: var(--muted); font-size: 15px; line-height: 1.35; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      padding-top: 25px;
+      font-size: 12px;
+    }
+
+    .copyright { color: var(--muted); }
+    .socials { display: flex; flex-wrap: wrap; gap: 20px; }
+    .socials a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+    @media (max-width: 760px) {
+      .page { width: min(100% - 26px, 520px); padding-top: 16px; }
+      .masthead { padding-bottom: 27px; }
+      .location { font-size: 9px; }
+      .intro { display: block; padding: 48px 0; }
+      h1 { max-width: 340px; font-size: clamp(58px, 17vw, 78px); }
+      .intro-copy { margin-top: 27px; max-width: 330px; font-size: 17px; }
+      .content { display: block; }
+      .section { padding: 25px 0; }
+      .label { margin-bottom: 22px; }
+      .role-grid { display: block; }
+      .role, .role + .role, .role:last-child { min-height: 0; padding: 18px 0; border-right: 0; border-bottom: 1px solid var(--rule); }
+      .role:last-child { border-bottom: 0; }
+      .role-title { font-size: 18px; }
+      .role-description { margin-top: 14px; font-size: 14px; }
+      .interest-copy { font-size: 22px; line-height: 1.08; }
+      .background-copy { font-size: 14px; }
+      footer { display: block; padding-top: 24px; }
+      .socials { margin-top: 20px; gap: 20px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Federico Leyva</h1>
-        
-        <div class="bio">
-            <p>DeFi strategist at World Foundation, focused on stablecoin infrastructure, ecosystem partnerships, and identity-driven finance for World Chain — a network built for 18 million verified humans.</p>
-            <p>Director of the board at Acme Wealth Group, a multi-strategy fund. Advisor at Symbiosis (prime brokerage for prediction markets).</p>
-            <p>Grew up in New York. UA Gateway School for Technology. Posse Foundation scholar at Babson College.</p>
-            <p>Interested in inefficient markets and food.</p>
-        </div>
+  <main class="page">
+    <header class="masthead">
+      <span class="monogram">FL</span>
+      <span class="location">New York / Global</span>
+    </header>
 
-        <div class="section-label">Projects</div>
-        <div class="links">
-            <a href="https://world.org" target="_blank">World Foundation <span>→ world.org</span></a>
-            <a href="https://world.org/world-chain" target="_blank">World Chain <span>→ world.org/world-chain</span></a>
-            <a href="https://acmewealthgroup.com" target="_blank">Acme Wealth Group <span>→ acmewealthgroup.com</span></a>
-            <a href="https://symbiosis.markets" target="_blank">Symbiosis <span>→ symbiosis.markets</span></a>
-        </div>
+    <section class="intro" aria-labelledby="name">
+      <h1 id="name">Federico<br>Leyva</h1>
+      <p class="intro-copy">I enjoy working across the systems that will shape how people, capital, and intelligence move in an AI-driven future.</p>
+    </section>
 
-        <div class="section-label">Blog</div>
-        <div class="links">
-            <a href="#">Coming soon</a>
+    <div class="content">
+      <section class="section roles" aria-labelledby="work-heading">
+        <h2 class="label" id="work-heading">Current work</h2>
+        <div class="role-grid">
+          <article class="role">
+            <a href="https://world.org" target="_blank" rel="noreferrer">
+              <span class="role-title">Strategist <span class="arrow">↗</span></span>
+              <span class="company">World</span>
+            </a>
+            <p class="role-description">Working on how identity can be solved in an AI-driven future.</p>
+          </article>
+          <article class="role">
+            <a href="https://acmewealthgroup.com" target="_blank" rel="noreferrer">
+              <span class="role-title">Director <span class="arrow">↗</span></span>
+              <span class="company">Acme</span>
+            </a>
+            <p class="role-description">Public equities and digital assets, alongside early-stage ventures and incubation.</p>
+          </article>
+          <article class="role">
+            <a href="https://transparent.space" target="_blank" rel="noreferrer">
+              <span class="role-title">Co-founder <span class="arrow">↗</span></span>
+              <span class="company">Transparent</span>
+            </a>
+            <p class="role-description">Liquidity advisory for crypto protocols.</p>
+          </article>
+          <article class="role">
+            <a href="https://symbiosis.markets" target="_blank" rel="noreferrer">
+              <span class="role-title">Advisor <span class="arrow">↗</span></span>
+              <span class="company">Symbiosis</span>
+            </a>
+            <p class="role-description">Prime brokerage for prediction markets.</p>
+          </article>
         </div>
+      </section>
 
-        <div class="section-label">Connect</div>
-        <div class="socials">
-            <a href="https://x.com/f73f73f73" target="_blank">X / Twitter</a>
-            <a href="https://linkedin.com/in/fleyva" target="_blank">LinkedIn</a>
-            <a href="mailto:federicoleyva@gmail.com">Email</a>
-        </div>
+      <section class="section advisory" aria-labelledby="advisory-heading">
+        <h2 class="label" id="advisory-heading">Advisory &amp; angel</h2>
+        <p class="interest-copy">Interested in decentralized inference, compute oracles, KYA (know your agent) infrastructure, harnesses and AI interfaces, and propAMMs.</p>
+      </section>
 
-        <div class="footer">
-            New York, 2026
-        </div>
+      <section class="section background" aria-labelledby="background-heading">
+        <h2 class="label" id="background-heading">Background</h2>
+        <p class="background-copy">Grew up in NYC. UA Gateway School for Technology. Posse Foundation Scholar at Babson College.</p>
+      </section>
     </div>
+
+    <footer>
+      <p class="copyright">Federico Leyva · 2026</p>
+      <nav class="socials" aria-label="Social links">
+        <a href="https://x.com/f73f73f73" target="_blank" rel="noreferrer">X / Twitter</a>
+        <a href="https://linkedin.com/in/fleyva" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="mailto:federicoleyva@gmail.com">Email</a>
+      </nav>
+    </footer>
+  </main>
 </body>
 </html>
