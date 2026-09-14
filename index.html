@@ -12,6 +12,7 @@
       --paper: #f8f8f4;
       --ink: #11110f;
       --muted: #6d6d68;
+      --quiet: #8a8a84;
       --rule: #dcdcd5;
       --accent: #eaff37;
     }
@@ -55,13 +56,13 @@
     .masthead-meta { display: flex; align-items: baseline; gap: 18px; }
     .location { color: var(--muted); font-size: 10px; letter-spacing: .1em; }
     .articles-link {
-      color: var(--muted);
+      color: var(--quiet);
       font-size: 10px;
       letter-spacing: .1em;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
+      text-decoration: none;
+      transition: color .18s ease;
     }
+    .articles-link:hover { color: var(--ink); }
 
     .intro {
       display: grid;
@@ -94,8 +95,9 @@
 
     .label {
       margin-bottom: 24px;
+      color: var(--muted);
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: .11em;
       line-height: 1;
       text-transform: uppercase;
@@ -150,7 +152,7 @@
       .role-grid { display: block; }
       .role, .role + .role, .role:last-child { min-height: 0; padding: 18px 0; border-right: 0; border-bottom: 1px solid var(--rule); }
       .role:last-child { border-bottom: 0; }
-      .role-title { font-size: 18px; }
+      .role-title { font-size: 17px; font-weight: 400; letter-spacing: -.045em; }
       .role-description { margin-top: 14px; font-size: 14px; }
       .interest-copy { font-size: 22px; line-height: 1.08; }
       .background-copy { font-size: 14px; }
