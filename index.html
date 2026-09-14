@@ -52,7 +52,10 @@
     }
 
     .monogram { letter-spacing: -.06em; }
+    .masthead-meta { display: flex; align-items: baseline; gap: 18px; }
     .location { color: var(--muted); font-size: 10px; letter-spacing: .1em; }
+    .articles-link { text-decoration: none; }
+    .articles-link:hover { text-decoration: underline; text-underline-offset: .15em; }
 
     .intro {
       display: grid;
@@ -154,7 +157,10 @@
   <main class="page">
     <header class="masthead">
       <span class="monogram">FL</span>
-      <span class="location">New York / Global</span>
+      <span class="masthead-meta">
+        <span class="location">New York / Global</span>
+        <a class="articles-link" href="https://cutaway.transparent.space/" target="_blank" rel="noreferrer">Articles ↗</a>
+      </span>
     </header>
 
     <section class="intro" aria-labelledby="name">
